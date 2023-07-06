@@ -1,0 +1,30 @@
+[package]
+name = "miyoo-mini-rust-template"
+version = "0.1.0"
+edition = "2021"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[target.'cfg(target_arch = "arm")'.dependencies]
+evdev = { version = "0.12.1", features = ["tokio"] }
+framebuffer = "0.3.1"
+
+[target.'cfg(not(target_arch = "arm"))'.dependencies]
+embedded-graphics-simulator = { version = "0.5.0" }
+sdl2 = { version = "0.35.2" }
+evdev = { version = "0.12.1", features = ["tokio"] }
+framebuffer = "0.3.1"
+
+[dependencies]
+anyhow = "1.0.71"
+embedded-graphics = "0.8.0"
+log = "0.4.19"
+simple_logger = "4.2.0"
+tokio = { version = "1.29.1", features = ["time", "macros", "rt"] }
+
+# Following: https://github.com/johnthagen/min-sized-rust
+[profile.release]
+strip = true
+opt-level = "s"
+lto = true
+codegen-units = 1

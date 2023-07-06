@@ -28,5 +28,6 @@ cargo run
 We use [cross](https://github.com/cross-rs/cross) for cross-compilation to the `arm-unknown-gnueabihf` target for the Miyoo Mini.
 ```
 cross build --release
-cp target/arm-unknown-linux-gnueabihf/release/<binary name> <sd card>
+cp -r static/. dist
+cp target/arm-unknown-linux-gnueabihf/release/miyoo-mini-rust-template "dist/Rust App Example.pak/"
 ```

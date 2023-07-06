@@ -1,0 +1,5 @@
+{
+    "label": "Rust App Example",
+    "description": "A simple Rust app example",
+    "launch": "launch.sh"
+}
